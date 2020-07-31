@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3" type="plugin" group="jshopping" method="upgrade">
     <name>ХуткiГрош (ЕРИП Беларусь)</name>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
     <author>esas.by</author>
     <creationDate>2018-12-30</creationDate>
     <copyright>Copyright (C) 2010 - 2018 ESAS. All rights reserved.</copyright>
