@@ -4,7 +4,7 @@
   
 ### Инструкция по установке:
 1. Создайте резервную копию вашего магазина и базы данных
-1. Загрузите архив с модулем [plg_jshopping_hutkigrosh.zip](https://bitbucket.org/esasby/cmsgate-joomshopping-hutkigrosh/src/master/plg_jshopping_hutkigrosh.zip)
+1. Загрузите архив с модулем [plg_jshopping_hutkigrosh.zip](https://bitbucket.org/esasby/cmsgate-joomshopping-hutkigrosh/raw/master/plg_jshopping_hutkigrosh.zip)
 1. В административной части Joomla выберите `Расширения - Менеджер расширений - Установка - Загрузить Файл пакета`. Выберите архив и нажмите `Загрузить`.
 1. Перейдите в меню `Компоненты — JoomShopping - Опции - Способы оплаты`.
 1. Выберите Hutkigrosh, перейдите на вкладку "Конфигурация"

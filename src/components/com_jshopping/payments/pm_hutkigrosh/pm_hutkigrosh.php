@@ -8,12 +8,10 @@
 
 
 use esas\cmsgate\hutkigrosh\controllers\ControllerHutkigroshAddBill;
-use esas\cmsgate\hutkigrosh\controllers\ControllerHutkigroshWebpayForm;
+use esas\cmsgate\hutkigrosh\controllers\ControllerHutkigroshCompletionPage;
 use esas\cmsgate\hutkigrosh\protocol\HutkigroshBillNewRs;
 use esas\cmsgate\hutkigrosh\RegistryHutkigroshJoomshopping;
 use esas\cmsgate\hutkigrosh\utils\RequestParamsHutkigrosh;
-use esas\cmsgate\hutkigrosh\view\client\CompletionPanelHutkigrosh;
-use esas\cmsgate\hutkigrosh\view\client\CompletionPanelHutkigroshJoomshopping;
 use esas\cmsgate\messenger\Messages;
 use esas\cmsgate\Registry;
 use esas\cmsgate\utils\Logger;
@@ -170,18 +168,8 @@ class pm_hutkigrosh extends PaymentRoot
     function complete($pmconfigs, $order, $payment)
     {
         try {
-            $orderWrapper = Registry::getRegistry()->getOrderWrapper($order->order_id);
-            $completionPanel = new CompletionPanelHutkigroshJoomshopping($orderWrapper);
-            if (RegistryHutkigroshJoomshopping::getRegistry()->getConfigWrapper()->isAlfaclickSectionEnabled()) {
-                $completionPanel->setAlfaclickUrl(SystemSettingsWrapperJoomshopping::generatePaySystemControllerPath("alfaclick"));
-            }
-            if (RegistryHutkigroshJoomshopping::getRegistry()->getConfigWrapper()->isWebpaySectionEnabled()) {
-                $controller = new ControllerHutkigroshWebpayForm();
-                $webpayResp = $controller->process($orderWrapper);
-                $completionPanel->setWebpayForm($webpayResp->getHtmlForm());
-                if (array_key_exists(RequestParamsHutkigrosh::WEBPAY_STATUS, $_REQUEST))
-                    $completionPanel->setWebpayStatus($_REQUEST[RequestParamsHutkigrosh::WEBPAY_STATUS]);
-            }
+            $controller = new ControllerHutkigroshCompletionPage();
+            $completionPanel = $controller->process($order->order_id);
             $completionPanel->render();
         } catch (Throwable $e) {
             Logger::getLogger("payment")->error("Exception:", $e);
