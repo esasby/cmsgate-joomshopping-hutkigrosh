@@ -9,12 +9,12 @@ defined('_JEXEC') or die();
 
 use esas\cmsgate\hutkigrosh\controllers\ControllerHutkigroshAlfaclick;
 use esas\cmsgate\hutkigrosh\controllers\ControllerHutkigroshNotify;
-use esas\cmsgate\joomshopping\CmsgateController;
+use esas\cmsgate\joomshopping\CmsgateControllerJoomshopping;
 use esas\cmsgate\utils\Logger as HgLogger;
 
-require_once(dirname(dirname(__FILE__)) . '/payments/pm_hutkigrosh/init.php');
+require_once(JPATH_SITE . '/plugins/jshopping/hutkigrosh/init.php');
 
-class JshoppingControllerHutkigrosh extends CmsgateController
+class JshoppingControllerHutkigrosh extends CmsgateControllerJoomshopping
 {
     /**
      * Выставляет счет в альфаклик

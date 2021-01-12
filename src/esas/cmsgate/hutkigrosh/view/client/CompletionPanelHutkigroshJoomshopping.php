@@ -69,11 +69,6 @@ class CompletionPanelHutkigroshJoomshopping extends CompletionPanelHutkigrosh
         return "form-control";
     }
 
-    public function getModuleCSSFilePath()
-    {
-        return dirname(__FILE__) . "/hiddenRadio.css";
-    }
-
     public function addTabs()
     {
         return element::div(

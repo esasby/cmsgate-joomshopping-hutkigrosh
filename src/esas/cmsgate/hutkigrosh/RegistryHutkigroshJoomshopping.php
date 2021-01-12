@@ -9,11 +9,13 @@
 namespace esas\cmsgate\hutkigrosh;
 
 use esas\cmsgate\CmsConnectorJoomshopping;
+use esas\cmsgate\descriptors\ModuleDescriptor;
+use esas\cmsgate\descriptors\VendorDescriptor;
+use esas\cmsgate\descriptors\VersionDescriptor;
 use esas\cmsgate\hutkigrosh\utils\RequestParamsHutkigrosh;
-use esas\cmsgate\Registry;
+use esas\cmsgate\hutkigrosh\view\client\CompletionPanelHutkigroshJoomshopping;
 use esas\cmsgate\view\admin\AdminViewFields;
 use esas\cmsgate\view\admin\ConfigFormJoomshopping;
-use esas\cmsgate\wrappers\SystemSettingsWrapperJoomshopping;
 
 class RegistryHutkigroshJoomshopping extends RegistryHutkigrosh
 {
@@ -43,7 +45,9 @@ class RegistryHutkigroshJoomshopping extends RegistryHutkigrosh
             [
                 ConfigFieldsHutkigrosh::shopName(),
                 ConfigFieldsHutkigrosh::paymentMethodName(),
-                ConfigFieldsHutkigrosh::paymentMethodDetails()
+                ConfigFieldsHutkigrosh::paymentMethodDetails(),
+                ConfigFieldsHutkigrosh::paymentMethodNameWebpay(),
+                ConfigFieldsHutkigrosh::paymentMethodDetailsWebpay(),
             ]);
         $configForm = new ConfigFormJoomshopping(
             $managedFields,
@@ -55,18 +59,34 @@ class RegistryHutkigroshJoomshopping extends RegistryHutkigrosh
     }
 
 
-    function getUrlAlfaclick($orderId)
+    function getUrlAlfaclick($orderWrapper)
     {
         return
-            SystemSettingsWrapperJoomshopping::generatePaySystemControllerUrl("alfaclick");
+            CmsConnectorJoomshopping::generatePaySystemControllerUrl("alfaclick");
     }
 
-    function getUrlWebpay($orderId)
+    function getUrlWebpay($orderWrapper)
     {
-        $orderWrapper = Registry::getRegistry()->getOrderWrapper($orderId);
         return
-            SystemSettingsWrapperJoomshopping::generatePaySystemControllerUrl("complete") .
+            CmsConnectorJoomshopping::generatePaySystemControllerUrl("complete") .
             "&" . RequestParamsHutkigrosh::ORDER_NUMBER . "=" . $orderWrapper->getOrderNumber() .
             "&" . RequestParamsHutkigrosh::BILL_ID . "=" . $orderWrapper->getExtId();
+    }
+
+    public function getCompletionPanel($orderWrapper)
+    {
+        return new CompletionPanelHutkigroshJoomshopping($orderWrapper);
+    }
+
+    public function createModuleDescriptor()
+    {
+        return new ModuleDescriptor(
+            "hutkigrosh",
+            new VersionDescriptor("3.1.0", "2021-01-05"),
+            "Прием платежей через ЕРИП (сервис Hutkirosh)",
+            "https://bitbucket.esas.by/projects/CG/repos/cmsgate-joomshopping-hutkigrosh/browse",
+            VendorDescriptor::esas(),
+            "Выставление пользовательских счетов в ЕРИП"
+        );
     }
 }

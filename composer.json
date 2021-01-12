@@ -12,8 +12,8 @@
   ],
   "require": {
     "php": ">= 5.6.0",
-    "esas/cmsgate-hutkigrosh-lib": "~v1.9.0",
-    "esas/cmsgate-joomshopping-lib": "~v1.9.0",
+    "esas/cmsgate-hutkigrosh-lib": "~v1.13.8",
+    "esas/cmsgate-joomshopping-lib": "~v1.15.0",
     "ext-openssl": "*",
     "ext-curl": "*"
   },
@@ -25,7 +25,7 @@
     }
   ],
   "config": {
-    "vendor-dir": "src/components/com_jshopping/payments/pm_hutkigrosh/vendor"
+    "vendor-dir": "src/vendor"
   },
   "license": "MIT",
   "autoload": {
