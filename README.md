@@ -18,6 +18,8 @@
 
 Следите за анонсами о сроках отключения старого API и переходите на API v3 заранее (порядок перехода описан в разделе "[Одновременная работа и переход на API v3](#одновременная-работа-и-переход-на-api-v3)").
 
+## Скачать
+
 Для каждой версии CMS используется свой файл сборки (.zip):
 
 | CMS | Сборка API v3 (рекомендуется) | Сборка предыдущего поколения |
@@ -26,13 +28,6 @@
 | Joomla 3.x + JoomShopping 4.x | [plg_jshopping_hutkigrosh_apiv3.zip](https://bitbucket.org/esasby/cmsgate-joomshopping-hutkigrosh/raw/master/plg_jshopping_hutkigrosh_apiv3.zip) | [plg_jshopping_hutkigrosh.zip](https://bitbucket.org/esasby/cmsgate-joomshopping-hutkigrosh/raw/master/plg_jshopping_hutkigrosh.zip) |
 
 Отдельная сборка API v3 обусловлена сменой поколения API сервиса, а не изменениями Joomla: внутри одной версии CMS обе сборки отличаются только поколением API.
-
-## Скачать
-
-- Joomla 4.x + JoomShopping 5.x, API v3 (рекомендуется): [plg_jshopping_hutkigrosh_apiv3.zip](https://bitbucket.org/esasby/cmsgate-joomshopping-hutkigrosh/raw/master/plg_jshopping_hutkigrosh_apiv3.zip) (v3.2.2)
-- Joomla 3.x + JoomShopping 4.x, API v3 (рекомендуется): [plg_jshopping_hutkigrosh_apiv3.zip](https://bitbucket.org/esasby/cmsgate-joomshopping-hutkigrosh/raw/master/plg_jshopping_hutkigrosh_apiv3.zip) (v3.2.2)
-- Joomla 3.x + JoomShopping 4.x, предыдущее поколение: [plg_jshopping_hutkigrosh.zip](https://bitbucket.org/esasby/cmsgate-joomshopping-hutkigrosh/raw/master/plg_jshopping_hutkigrosh.zip) (v3.1.0, проверено на Joomla 3.8.3 + JoomShopping 4.16.3)
-- Предыдущие релизы предыдущего поколения (3.0.0 – 3.1.0) распространялись через сервер обновлений Joomla: [update.xml](https://bitbucket.org/esasby/cmsgate-joomshopping-hutkigrosh/raw/master/update.xml)
 
 ## Требования
 
